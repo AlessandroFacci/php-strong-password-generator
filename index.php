@@ -1,28 +1,33 @@
 <?php
-$possible_chars ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?#*@%$&£ç§';
-
+$possible_chars ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?#*@%$&';
+// var_dump($possible_chars);
 function random_password( int $lenght, string $possible_chars){
-// converto la stringa in un array
-$characters = str_split($possible_chars);
-// dichiaro l'array password
-$password = [];
+// dichiaro  password
+$password = '';
+// var_dump($password);
 
 // ciclo per la lunghezza ricevuta
 for ($i=0; $i < $lenght; $i++) { 
-// genero randomicamente i caratteri all'interno della stringa che ho convertito
-  $random = rand(0, count($characters) - 1);
+
+// genero randomicamente dei caratteri per la lunghezza
+  $random = rand(0, strlen($possible_chars) - 1);
+  // var_dump($random);
+
 // inserico il risultato
-  $password = $random;
+  $password = $password.$possible_chars[$random];
+  // var_dump($password);
 }
+// ritorno il risultato
 return $password;
 };
 
 if(isset($_GET["number"])){
   $lenght = $_GET["number"];
-
- 
-  
   // var_dump($lenght);
+  
+ $pvd = random_password($lenght, $possible_chars);
+
+ echo $pvd;
 }
 
 
@@ -71,10 +76,7 @@ if(isset($_GET["number"])){
             <input type="submit" class="btn btn-primary mt-3" value="Genera">
             <input type="reset" value="Reset" class="btn btn-warning mt-3">
           </form>
-
-          <?php echo $password ?>
         </div>
-
       </div>
     </div>
   </div>

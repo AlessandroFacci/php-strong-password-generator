@@ -1,10 +1,30 @@
 <?php
 $possible_chars ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?#*@%$&£ç§';
 
-$lenght = strlen($_GET["number"]);
+function random_password( int $lenght, string $possible_chars){
+// converto la stringa in un array
+$characters = str_split($possible_chars);
+// dichiaro l'array password
+$password = [];
 
+// ciclo per la lunghezza ricevuta
+for ($i=0; $i < $lenght; $i++) { 
+// genero randomicamente i caratteri all'interno della stringa che ho convertito
+  $random = rand(0, count($characters) - 1);
+// inserico il risultato
+  $password = $random;
+}
+return $password;
+};
 
-var_dump($lenght);
+if(isset($_GET["number"])){
+  $lenght = $_GET["number"];
+
+ 
+  
+  // var_dump($lenght);
+}
+
 
 ?>
 
@@ -49,10 +69,10 @@ var_dump($lenght);
             <input type="number" min="8" max="20" step="1" class="form-control" id="password"
               placeholder="Scrivi quanti caratteri deve avere la password" name="number" required>
             <input type="submit" class="btn btn-primary mt-3" value="Genera">
-
-
             <input type="reset" value="Reset" class="btn btn-warning mt-3">
           </form>
+
+          <?php echo $password ?>
         </div>
 
       </div>

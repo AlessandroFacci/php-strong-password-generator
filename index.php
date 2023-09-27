@@ -3,8 +3,6 @@ $possible_chars ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
 
 $has_password = isset($_GET["number"]);
 
-var_dump($has_password);
-
 ?>
 
 
@@ -46,8 +44,10 @@ var_dump($has_password);
           <form action="./index.php" method="GET">
             <label for="password" class="form-label">Genera password</label>
             <input type="number" min="8" max="20" step="1" class="form-control" id="password"
-              placeholder="Scrivi quanti caratteri deve avere la password" required>
-            <div class="btn btn-primary mt-3">Genera</div>
+              placeholder="Scrivi quanti caratteri deve avere la password" name="number" required>
+            <input type="submit" class="btn btn-primary mt-3" value="Genera">
+
+
             <input type="reset" value="Reset" class="btn btn-warning mt-3">
           </form>
         </div>

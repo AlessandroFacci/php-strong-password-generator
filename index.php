@@ -1,7 +1,10 @@
 <?php
 $possible_chars ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?#*@%$&£ç§';
 
-$has_password = isset($_GET["number"]);
+$lenght = strlen($_GET["number"]);
+
+
+var_dump($lenght);
 
 ?>
 

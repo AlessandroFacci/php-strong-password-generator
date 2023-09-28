@@ -9,9 +9,11 @@ if(isset($_GET["number"])){
   $lenght = $_GET["number"];
   // var_dump($lenght);
   
- $pvd = random_password($lenght, $possible_chars);
+ session_start(); 
+ $_SESSION['pvd'] = random_password($lenght, $possible_chars);
+ header('Location: generate.php');
 
- echo $pvd;
+//  echo $pvd;
 };
 
 ?>
